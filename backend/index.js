@@ -1,15 +1,16 @@
 const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
-dotenv.config();
 const mongoose = require("mongoose");
-mongoose.set("strictQuery", true);
 const port = process.env.port || 4000;
 const cors = require("cors");
 app.use(cors());
+dotenv.config();
 app.use(express.json());
+mongoose.set("strictQuery", true);
+
 const router = require("./routes/index");
-app.use(express.json());
+
 app.use("/api", router);
 
 mongoose
@@ -24,4 +25,8 @@ mongoose
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}!`);
+});
+
+app.use((req, res) => {
+  return res.status(404).send("Rout Not Found");
 });
