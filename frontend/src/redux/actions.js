@@ -1,5 +1,5 @@
-import * as types from "./actionType";
-import axios from "axios";
+import * as types from './actionType';
+import axios from 'axios';
 
 const getUsers = (users) => ({
   type: types.GET_USERS,
@@ -20,14 +20,14 @@ const userUpdated = (user) => ({
   payload: user,
 });
 
-const host = "http://localhost:4000";
+const host = 'http://localhost:4000';
 
 export const loadUsers = () => {
   return function (dispacth) {
     axios
       .get(`${host}/api/users/get-user`)
       .then((res) => {
-        console.log("res", res);
+        console.log('res', res);
         dispacth(getUsers(res.data));
       })
       .catch((error) => console.log(error));
@@ -39,7 +39,7 @@ export const deleteUser = (id) => {
     axios
       .delete(`${host}/api/users/delete-user/${id}`)
       .then((res) => {
-        console.log("res", res);
+        console.log('res', res);
         dispacth(userDeleted());
         dispacth(loadUsers());
       })
@@ -52,7 +52,7 @@ export const addUser = (user) => {
     axios
       .post(`${host}/api/users/add-user`, user)
       .then((res) => {
-        console.log("res", res);
+        console.log('res', res);
         dispacth(userAdded());
         dispacth(loadUsers());
       })
@@ -65,7 +65,7 @@ export const getSingleUser = (id) => {
     axios
       .get(`${host}/api/users/get-single-user/${id}`)
       .then((res) => {
-        console.log("res", res);
+        console.log('res', res);
         dispacth(getUser(res.data));
       })
       .catch((error) => console.log(error));
@@ -77,7 +77,7 @@ export const updateUser = (user, id) => {
     axios
       .put(`${host}/api/users/update-user/${id}`, user)
       .then((res) => {
-        console.log("res", res);
+        console.log('res', res);
         dispacth(userUpdated());
       })
       .catch((error) => console.log(error));
