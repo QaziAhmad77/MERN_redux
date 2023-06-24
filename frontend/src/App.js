@@ -11,7 +11,7 @@ function App() {
 
 export default App;
 
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 
 // const App = () => {
 //   const [nameList, setNameList] = useState(['Ahmad', 'Anas', 'Noman']);
@@ -43,7 +43,7 @@ import React, { useState } from 'react';
 //   };
 //   return (
 //     <div>
-//       <h1>CRUP OPERATIONS</h1>
+//       <h1>CRUD OPERATIONS</h1>
 //       <form action="" onSubmit={handleOnChange}>
 //         <input
 //           type="text"
